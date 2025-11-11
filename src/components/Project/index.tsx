@@ -71,6 +71,7 @@ const Projects: React.FC = () => {
             githubUrl={project.githubUrl}
             liveUrl={project.liveUrl}
             isFeatured={false}
+            index={project.id - 1}
           />
         ))}
       </div>

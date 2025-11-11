@@ -25,10 +25,12 @@ body {
   font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont,
     "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
+  color: white;
 }
 
 :root {
   --main-color: #7127ba;
+  --second-color: #9857d3;
   --background: #11071f;
 }
 
