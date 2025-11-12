@@ -1,0 +1,56 @@
+{
+  "header": {
+    "home": "Home",
+    "about": "About",
+    "lab": "Lab"
+  },
+  "banner": {
+    "greeting": "Hello! I Am",
+    "name": "Nguyen Trung Hieu",
+    "role": "A Fullstack Developer",
+    "tagline1": "Who builds both the story and",
+    "tagline2": "the",
+    "tagline3": "cover",
+    "subtitle": "Because what's beauty without function?"
+  },
+  "description": {
+    "title": "I'm a Frontend Developer.|",
+    "currentRole": "Currently, I'm a Frontend Developer with",
+    "company": "Facebook",
+    "intro1": "A passionate Frontend Developer, working in the industry for 2+ years now.",
+    "intro2": "I create beautiful and responsive user interfaces that provide excellent user experience and meet modern web standards."
+  },
+  "workExperience": {
+    "title1": "CIB on the Mobile",
+    "description1": "Take your client onboard seamlessly by our amazing tool of digital onboard process.",
+    "buttonText": "LEARN MORE"
+  },
+  "skill": {
+    "title": "I'm seeking to join a cross-functional team",
+    "description": "that leverages modern fullstack technologies to build impactful, user-centered products.",
+    "imageAlt": "Skills"
+  },
+  "projects": {
+    "project1": {
+      "title": "Example Project",
+      "description": "A web app for visualizing personalized Spotify data. View your top artists, top tracks, recently played tracks, and detailed audio information about each track. Create and save new playlists of recommended tracks based on your existing playlists and more."
+    },
+    "project2": {
+      "title": "Portfolio Website",
+      "description": "A responsive portfolio website built with Next.js and TypeScript. Features include dark mode, smooth animations, and modern design principles."
+    },
+    "project3": {
+      "title": "E-commerce Platform",
+      "description": "Full-stack e-commerce solution with payment integration, inventory management, and admin dashboard."
+    },
+    "project4": {
+      "title": "Task Management App",
+      "description": "A collaborative task management application with real-time updates, team collaboration features, and project tracking."
+    }
+  },
+  "footer": {
+    "title": "Contact",
+    "description": "I'm currently looking to join a cross-functional team that values improving people's lives through accessible design. or have a project in mind? Let's connect.",
+    "email": "hieunt8901@gmail.com"
+  }
+}

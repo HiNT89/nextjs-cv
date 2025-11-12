@@ -1,10 +1,13 @@
+"use client";
+
 import React from "react";
 import ProjectCard from "./ProjectCard";
+import { useTranslations } from "next-intl";
 
 interface Project {
   id: number;
-  title: string;
-  description: string;
+  titleKey: string;
+  descriptionKey: string;
   image: string;
   technologies: string[];
   githubUrl?: string;
@@ -12,50 +15,48 @@ interface Project {
   isFeatured?: boolean;
 }
 
-const projectsData: Project[] = [
-  {
-    id: 1,
-    title: "Example Project",
-    description:
-      "A web app for visualizing personalized Spotify data. View your top artists, top tracks, recently played tracks, and detailed audio information about each track. Create and save new playlists of recommended tracks based on your existing playlists and more.",
-    image: "/api/placeholder/600/400",
-    technologies: ["React", "Node.js", "Spotify API", "Express", "MongoDB"],
-    githubUrl: "https://github.com/example/project",
-    liveUrl: "https://example-project.com",
-    isFeatured: true,
-  },
-  {
-    id: 2,
-    title: "Portfolio Website",
-    description:
-      "A responsive portfolio website built with Next.js and TypeScript. Features include dark mode, smooth animations, and modern design principles.",
-    image: "/api/placeholder/600/400",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    githubUrl: "https://github.com/example/portfolio",
-    liveUrl: "https://portfolio.example.com",
-  },
-  {
-    id: 3,
-    title: "E-commerce Platform",
-    description:
-      "Full-stack e-commerce solution with payment integration, inventory management, and admin dashboard.",
-    image: "/api/placeholder/600/400",
-    technologies: ["React", "Node.js", "PostgreSQL", "Stripe", "Docker"],
-    githubUrl: "https://github.com/example/ecommerce",
-    liveUrl: "https://ecommerce.example.com",
-  },
-  {
-    id: 4,
-    title: "Task Management App",
-    description:
-      "A collaborative task management application with real-time updates, team collaboration features, and project tracking.",
-    image: "/api/placeholder/600/400",
-    technologies: ["Vue.js", "Firebase", "Vuex", "Socket.io"],
-    githubUrl: "https://github.com/example/taskmanager",
-  },
-];
-
 const Projects: React.FC = () => {
+  const t = useTranslations("projects");
+
+  const projectsData: Project[] = [
+    {
+      id: 1,
+      titleKey: "project1.title",
+      descriptionKey: "project1.description",
+      image: "/api/placeholder/600/400",
+      technologies: ["React", "Node.js", "Spotify API", "Express", "MongoDB"],
+      githubUrl: "https://github.com/example/project",
+      liveUrl: "https://example-project.com",
+      isFeatured: true,
+    },
+    {
+      id: 2,
+      titleKey: "project2.title",
+      descriptionKey: "project2.description",
+      image: "/api/placeholder/600/400",
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+      githubUrl: "https://github.com/example/portfolio",
+      liveUrl: "https://portfolio.example.com",
+    },
+    {
+      id: 3,
+      titleKey: "project3.title",
+      descriptionKey: "project3.description",
+      image: "/api/placeholder/600/400",
+      technologies: ["React", "Node.js", "PostgreSQL", "Stripe", "Docker"],
+      githubUrl: "https://github.com/example/ecommerce",
+      liveUrl: "https://ecommerce.example.com",
+    },
+    {
+      id: 4,
+      titleKey: "project4.title",
+      descriptionKey: "project4.description",
+      image: "/api/placeholder/600/400",
+      technologies: ["Vue.js", "Firebase", "Vuex", "Socket.io"],
+      githubUrl: "https://github.com/example/taskmanager",
+    },
+  ];
+
   const otherProjects = projectsData.filter((project) => !project.isFeatured);
 
   return (
@@ -64,8 +65,8 @@ const Projects: React.FC = () => {
         {otherProjects.map((project) => (
           <ProjectCard
             key={project.id}
-            title={project.title}
-            description={project.description}
+            title={t(project.titleKey)}
+            description={t(project.descriptionKey)}
             image={project.image}
             technologies={project.technologies}
             githubUrl={project.githubUrl}

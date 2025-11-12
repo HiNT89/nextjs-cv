@@ -1,26 +1,29 @@
 "use client";
-import logo from "@/src/assets/images/hint.jpg";
+import logo from "@/src/assets/images/logo.png";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
-
-const NAV = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Lab", href: "/lab" },
-];
+import LanguageSwitcher from "@/src/components/LanguageSwitcher";
+import { useTranslations } from "next-intl";
 
 const CHeader = () => {
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const t = useTranslations("header");
+
+  const NAV = [
+    { name: t("home"), href: "/" },
+    { name: t("about"), href: "/about" },
+    { name: t("lab"), href: "/lab" },
+  ];
 
   return (
     <header className="py-4 md:py-6 bg-[#1A0B2E] text-white px-4">
       <div className="custom-container flex justify-between items-center w-full">
         {/* logo */}
         <div
-          className="cursor-pointer border-3 border-(--main-color) h-10 w-10 md:h-12 md:w-12 rounded-full shadow-lg object-cover overflow-hidden"
+          className="cursor-pointer border-3 border-(--main-color) h-10 w-10 md:h-12 md:w-12 rounded-full shadow-lg object-cover overflow-hidden p-2"
           onClick={() => {
             router.push("/");
           }}
@@ -41,6 +44,7 @@ const CHeader = () => {
               {item.name}
             </button>
           ))}
+          <LanguageSwitcher />
         </nav>
 
         {/* Mobile menu button */}
@@ -69,6 +73,9 @@ const CHeader = () => {
               {item.name}
             </button>
           ))}
+          <div className="mt-4">
+            <LanguageSwitcher />
+          </div>
         </nav>
 
         {/* Overlay */}

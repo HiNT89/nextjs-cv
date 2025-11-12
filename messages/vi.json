@@ -1,0 +1,56 @@
+{
+  "header": {
+    "home": "Trang chủ",
+    "about": "Giới thiệu",
+    "lab": "Phòng thí nghiệm"
+  },
+  "banner": {
+    "greeting": "Xin chào! Tôi là",
+    "name": "Nguyễn Trung Hiếu",
+    "role": "Lập trình viên Fullstack",
+    "tagline1": "Người xây dựng cả câu chuyện và",
+    "tagline2": "chiếc",
+    "tagline3": "bìa sách",
+    "subtitle": "Bởi vì vẻ đẹp mà không có chức năng thì sao?"
+  },
+  "description": {
+    "title": "Tôi là Lập trình viên Frontend.|",
+    "currentRole": "Hiện tại, tôi là Lập trình viên Frontend tại",
+    "company": "Facebook",
+    "intro1": "Một lập trình viên Frontend đam mê, đã làm việc trong ngành hơn 2 năm.",
+    "intro2": "Tôi tạo ra các giao diện người dùng đẹp mắt và responsive, mang lại trải nghiệm người dùng tuyệt vời và đáp ứng các tiêu chuẩn web hiện đại."
+  },
+  "workExperience": {
+    "title1": "CIB trên Di động",
+    "description1": "Đưa khách hàng của bạn lên hệ thống một cách liền mạch bằng công cụ tuyệt vời của chúng tôi cho quy trình số hóa.",
+    "buttonText": "TÌM HIỂU THÊM"
+  },
+  "skill": {
+    "title": "Tôi đang tìm kiếm cơ hội gia nhập một đội ngũ đa chức năng",
+    "description": "tận dụng các công nghệ fullstack hiện đại để xây dựng các sản phẩm có tác động và lấy người dùng làm trung tâm.",
+    "imageAlt": "Kỹ năng"
+  },
+  "projects": {
+    "project1": {
+      "title": "Dự án Ví dụ",
+      "description": "Ứng dụng web để trực quan hóa dữ liệu Spotify cá nhân hóa. Xem các nghệ sĩ hàng đầu, các bài hát hàng đầu, các bài hát đã phát gần đây và thông tin âm thanh chi tiết về từng bài hát. Tạo và lưu danh sách phát mới được đề xuất dựa trên danh sách phát hiện có và nhiều hơn nữa."
+    },
+    "project2": {
+      "title": "Website Portfolio",
+      "description": "Website portfolio responsive được xây dựng bằng Next.js và TypeScript. Các tính năng bao gồm chế độ tối, hoạt ảnh mượt mà và các nguyên tắc thiết kế hiện đại."
+    },
+    "project3": {
+      "title": "Nền tảng Thương mại điện tử",
+      "description": "Giải pháp thương mại điện tử full-stack với tích hợp thanh toán, quản lý hàng tồn kho và bảng điều khiển quản trị."
+    },
+    "project4": {
+      "title": "Ứng dụng Quản lý Tác vụ",
+      "description": "Ứng dụng quản lý tác vụ cộng tác với cập nhật thời gian thực, các tính năng cộng tác nhóm và theo dõi dự án."
+    }
+  },
+  "footer": {
+    "title": "Liên hệ",
+    "description": "Tôi hiện đang tìm kiếm cơ hội gia nhập một đội ngũ đa chức năng đề cao việc cải thiện cuộc sống của mọi người thông qua thiết kế dễ tiếp cận. hoặc có một dự án trong đầu? Hãy kết nối.",
+    "email": "hieunt8901@gmail.com"
+  }
+}

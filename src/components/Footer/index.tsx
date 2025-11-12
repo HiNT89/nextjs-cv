@@ -1,3 +1,5 @@
+"use client";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faInstagram,
@@ -5,27 +7,28 @@ import {
   faGoogle,
   faFacebook,
 } from "@fortawesome/free-brands-svg-icons";
+import { useTranslations } from "next-intl";
 
 const Footer = () => {
+  const t = useTranslations("footer");
+
   return (
     <footer className="bg-[#1a0b2e] py-16 px-6 lg:px-20">
       <div className="max-w-7xl mx-auto">
         <div className="max-w-2xl">
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-8">
-            Contact
+            {t("title")}
           </h2>
 
           <p className="text-gray-300 leading-relaxed mb-6">
-            I'm currently looking to join a cross-functional team that values
-            improving people's lives through accessible design. or have a
-            project in mind? Let's connect.
+            {t("description")}
           </p>
 
           <a
-            href="mailto:hieunt8901@gmail.com"
+            href={`mailto:${t("email")}`}
             className="text-gray-300 hover:text-purple-400 transition-colors mb-8 inline-block"
           >
-            hieunt8901@gmail.com
+            {t("email")}
           </a>
 
           <div className="flex gap-6 mt-8">
@@ -48,7 +51,7 @@ const Footer = () => {
               <FontAwesomeIcon icon={faFacebook} size="xl" />
             </a>
             <a
-              href="mailto:hieunt8901@gmail.com"
+              href={`mailto:${t("email")}`}
               className="text-white hover:text-purple-400 transition-colors"
               aria-label="Google"
             >

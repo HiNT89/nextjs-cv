@@ -1,8 +1,13 @@
+"use client";
+
 import bg from "@/src/assets/images/Gradient.png";
 import ExperienceCard from "@/src/components/WorkExperience/ExperienceCard";
 import { experiencesData } from "./experiencesData";
+import { useTranslations } from "next-intl";
 
 const WorkExperience = () => {
+  const t = useTranslations("workExperience");
+
   return (
     <section className="relative min-h-screen py-20 px-4">
       <div className="custom-container">
@@ -12,9 +17,9 @@ const WorkExperience = () => {
               key={exp.id}
               icon={exp.icon}
               iconClass={exp.iconClass}
-              title={exp.title}
-              description={exp.description}
-              buttonText={exp.buttonText}
+              title={t("title1")}
+              description={t("description1")}
+              buttonText={t("buttonText")}
             />
           ))}
         </div>

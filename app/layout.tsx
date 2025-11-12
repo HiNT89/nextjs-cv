@@ -1,6 +1,8 @@
 import "./globals.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import BackToTop from "@/src/components/BackToTop";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getMessages } from "next-intl/server";
 
 // Extract metadata configuration for better maintainability
 const SITE_METADATA = {
@@ -49,17 +51,22 @@ const generateMetaTags = (metadata: typeof SITE_METADATA) => (
   </>
 );
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+  const messages = await getMessages();
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <head>{generateMetaTags(SITE_METADATA)}</head>
       <body className="bg-(--background)">
-        {children}
-        <BackToTop />
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          {children}
+          <BackToTop />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

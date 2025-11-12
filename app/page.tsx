@@ -3,6 +3,7 @@ import Description from "@/src/components/Description";
 import Footer from "@/src/components/Footer";
 import CHeader from "@/src/components/Header/page";
 import Projects from "@/src/components/Project";
+import Skill from "@/src/components/Skill";
 import WorkExperience from "@/src/components/WorkExperience";
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
       <Banner />
       <Description />
       <WorkExperience />
+      <Skill />
       <Projects />
       <Footer />
     </main>
