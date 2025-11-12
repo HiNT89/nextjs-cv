@@ -8,14 +8,36 @@ import WorkExperience from "@/src/components/WorkExperience";
 
 export default function Home() {
   return (
-    <main>
+    <main className="pt-20">
       <CHeader />
-      <Banner />
-      <Description />
-      <WorkExperience />
+
+      {/* Home Section */}
+      <section id="home">
+        <Banner />
+      </section>
+
+      {/* About Section */}
+      <section id="about">
+        <Description />
+      </section>
+
+      {/* Experience Section */}
+      <section id="experience">
+        <WorkExperience />
+      </section>
+
+      {/* Skills Section - Optional, you can add ID if needed */}
       <Skill />
-      <Projects />
-      <Footer />
+
+      {/* Projects Section */}
+      <section id="projects">
+        <Projects />
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact">
+        <Footer />
+      </section>
     </main>
   );
 }
