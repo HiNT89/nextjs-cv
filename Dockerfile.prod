@@ -1,0 +1,23 @@
+# Stage 1: Build app
+FROM node:18-alpine AS build
+
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --legacy-peer-deps
+COPY . .
+RUN npm run build
+
+# Stage 2: Run app
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Copy toàn bộ code và build output từ stage trước
+COPY --from=build /app ./
+
+ENV NODE_ENV=production
+
+# Next.js chạy port 3000 mặc định
+EXPOSE 3000
+
+CMD ["npm", "run", "start"]

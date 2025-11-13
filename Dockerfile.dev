@@ -1,0 +1,17 @@
+# Base image
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Copy package files và cài deps
+COPY package*.json ./
+RUN npm install --legacy-peer-deps
+
+# Copy toàn bộ source code
+COPY . .
+
+# Cổng Next.js dev server
+EXPOSE 3000
+
+# Sử dụng Next.js dev mode
+CMD ["npm", "run", "dev"]

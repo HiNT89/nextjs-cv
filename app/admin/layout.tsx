@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { use, useState } from "react";
 import { Layout, Menu, theme } from "antd";
 import {
   DashboardOutlined,
@@ -11,6 +11,9 @@ import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
 } from "@ant-design/icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBook, faBoxOpen, faFile } from "@fortawesome/free-solid-svg-icons";
+import { useRouter } from "next/navigation";
 
 const { Header, Sider, Content } = Layout;
 
@@ -19,6 +22,7 @@ export default function AdminLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const router = useRouter();
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer, borderRadiusLG },
@@ -26,32 +30,24 @@ export default function AdminLayout({
 
   const menuItems = [
     {
-      key: "1",
-      icon: <DashboardOutlined />,
-      label: "Dashboard",
+      key: "/admin",
+      icon: <FontAwesomeIcon icon={faFile} />,
+      label: "File",
     },
     {
-      key: "2",
-      icon: <UserOutlined />,
-      label: "Profile",
+      key: "/admin/products",
+      icon: <FontAwesomeIcon icon={faBoxOpen} />,
+      label: "Product",
     },
     {
-      key: "3",
-      icon: <ProjectOutlined />,
+      key: "/admin/projects",
+      icon: <FontAwesomeIcon icon={faBook} />,
       label: "Projects",
     },
-    {
-      key: "4",
-      icon: <FileTextOutlined />,
-      label: "Experience",
-    },
-    {
-      key: "5",
-      icon: <SettingOutlined />,
-      label: "Settings",
-    },
   ];
-
+  const onClick = (e: any) => {
+    router.push(e.key);
+  };
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <Sider trigger={null} collapsible collapsed={collapsed}>
@@ -71,8 +67,9 @@ export default function AdminLayout({
         <Menu
           theme="dark"
           mode="inline"
-          defaultSelectedKeys={["1"]}
+          defaultSelectedKeys={["/admin"]}
           items={menuItems}
+          onClick={onClick}
         />
       </Sider>
       <Layout>

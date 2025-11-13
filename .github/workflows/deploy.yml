@@ -1,0 +1,72 @@
+name: Deploy basao-core
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Bước 1: Lấy code từ repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Bước 2: Cài đặt Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "lts/*"
+
+      # Bước 3: Cài đặt dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Bước 4: Cài đặt pm2
+      - name: Install pm2
+        run: |
+          npm install -g pm2
+
+      # Bước 5: Build project
+      - name: Build project
+        run: npm run build
+
+      # Bước 6: Deploy lên server
+      - name: Deploy to server
+        env:
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+          SERVER: ${{ secrets.SERVER }}
+          USER: ${{ secrets.USER }}
+        run: |
+          # Ghi SSH Key ra file tạm
+          mkdir -p ~/.ssh
+          echo "$SSH_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+
+          # Kết nối tới server và thực thi lệnh
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa $USER@$SERVER << 'EOF'
+            # Kiểm tra Node.js và cài đặt nếu chưa có
+            if ! command -v node &> /dev/null
+            then
+              sudo apt update
+              sudo apt install -y nodejs npm
+            fi
+
+            # Kiểm tra pm2 và cài đặt nếu chưa có
+            if ! command -v pm2 &> /dev/null
+            then
+              sudo npm install -g pm2
+            fi
+
+            cd /home/ubuntu/toan.tran4/front-end/frontend-basao-website
+            git stash
+            git pull
+            npm install --force
+            npm run build
+            pm2 restart basao-core
+          EOF
+
+          # Xóa file SSH key sau khi sử dụng
+          rm -f ~/.ssh/id_rsa
